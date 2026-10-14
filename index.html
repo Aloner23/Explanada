@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="logo.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#3b82f6" />
+  <meta name="description" content="Explanada — plataforma de administración para plazas comerciales" />
+  <link rel="apple-touch-icon" href="logo.png" />
+
+  <title>Explanada | Administración de plazas</title>
+  <script src="https://cdn.tailwindcss.com?plugins=container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <style>
+    /* Brand palette (Tailwind "blue" is remapped to these). Defaults = Tailwind blue;
+       src/config/plaza.ts overrides them from plaza.config → colors.primary at startup. */
+    :root {
+      --brand-50: 239 246 255; --brand-100: 219 234 254; --brand-200: 191 219 254; --brand-300: 147 197 253;
+      --brand-400: 96 165 250; --brand-500: 59 130 246; --brand-600: 37 99 235; --brand-700: 29 78 216;
+      --brand-800: 30 64 175; --brand-900: 30 58 138; --brand-950: 23 37 84;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* Custom scrollbar for cleaner look */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Animación Láser QR */
+    @keyframes scanner-line {
+      0% {
+        top: 0%;
+        opacity: 0;
+      }
+
+      10% {
+        opacity: 1;
+      }
+
+      90% {
+        opacity: 1;
+      }
+
+      100% {
+        top: 100%;
+        opacity: 0;
+      }
+    }
+
+    .qr-scanner-line {
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background: rgb(var(--brand-500));
+      box-shadow: 0 0 15px 2px rgb(var(--brand-500));
+      animation: scanner-line 2s infinite linear;
+      z-index: 10;
+    }
+  </style>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            blue: Object.fromEntries([50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950].map(n => [n, `rgb(var(--brand-${n}) / <alpha-value>)`])),
+          },
+          gridTemplateColumns: {
+            '15': 'repeat(15, minmax(0, 1fr))',
+            '30': 'repeat(30, minmax(0, 1fr))',
+          }
+        }
+      }
+    }
+  </script>
+  <script>
+    // Registro de Service Worker para soporte Offline y PWA
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js').then(registration => {
+          console.log('SW registered: ', registration);
+        }).catch(registrationError => {
+          console.log('SW registration failed: ', registrationError);
+        });
+      });
+    }
+  </script>
+</head>
+
+<body class="bg-slate-50 text-slate-900 font-sans selection:bg-blue-600 selection:text-white">
+  <div id="root"></div>
+  <script type="module" src="/src/index.tsx"></script>
+</body>
+
+</html>

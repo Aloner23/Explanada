@@ -1,0 +1,16 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    function manager() {
+      return request.auth != null &&
+        firestore.get(/databases/(default)/documents/plz_users/$(request.auth.uid)).data.active == true &&
+        firestore.get(/databases/(default)/documents/plz_users/$(request.auth.uid)).data.role in ['OWNER', 'ADMIN'];
+    }
+    match /uploads/{file} {
+      allow read: if manager();
+      allow create, update: if manager() && request.resource.size < 20 * 1024 * 1024 &&
+        request.resource.contentType.matches('(image/.*|application/pdf)');
+      allow delete: if manager();
+    }
+  }
+}

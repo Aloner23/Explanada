@@ -1,0 +1,71 @@
+{
+  "name": "explanada",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "electron/main.cjs",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "test": "node --test src/tests/security.test.cjs src/tests/plaza.test.cjs",
+    "test:firebase": "firebase emulators:exec --only firestore,auth,storage --project demo-plaza --config firebase.emulator.json \"node --test src/tests/firebase.rules.test.cjs src/tests/functions.integration.test.cjs\"",
+    "demo": "cross-env VITE_USE_EMULATORS=true firebase emulators:exec --only auth,firestore,storage,functions --project demo-plaza --config firebase.emulator.json --ui \"node demo/seed-emulators.mjs && vite\"",
+    "demo:mock": "vite --mode mock",
+    "build:mock": "vite build --mode mock --outDir dist-mock",
+    "electron:dev": "concurrently \"cross-env BROWSER=none npm run dev\" \"wait-on http://localhost:3000 && electron . --dev\"",
+    "electron:build": "npm run build && electron-builder",
+    "build:pages": "cross-env VITE_BASE_PATH=/Explanada/ vite build --mode mock --outDir dist-mock"
+  },
+  "dependencies": {
+    "@emailjs/browser": "^4.4.1",
+    "@google/genai": "^1.33.0",
+    "@react-three/drei": "^10.7.8",
+    "@react-three/fiber": "^9.7.0",
+    "firebase": "^12.9.0",
+    "framer-motion": "^12.34.4",
+    "html5-qrcode": "^2.3.8",
+    "jsbarcode": "^3.11.6",
+    "lucide-react": "^0.561.0",
+    "qrcode": "1.5.3",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "recharts": "^3.6.0",
+    "three": "^0.185.1",
+    "zustand": "^5.0.12"
+  },
+  "devDependencies": {
+    "@firebase/rules-unit-testing": "^5.0.2",
+    "@types/node": "^22.14.0",
+    "@types/three": "^0.185.4",
+    "@vitejs/plugin-react": "^5.0.0",
+    "concurrently": "^9.2.1",
+    "cross-env": "^10.1.0",
+    "electron": "^44.4.1",
+    "electron-builder": "^26.7.0",
+    "firebase-tools": "^15.6.0",
+    "jsdom": "^26.1.0",
+    "typescript": "~5.8.2",
+    "vite": "^6.2.0",
+    "wait-on": "^9.0.4"
+  },
+  "build": {
+    "appId": "com.example.explanada",
+    "productName": "Explanada",
+    "directories": {
+      "output": "dist-electron"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "public/logo.png"
+    }
+  },
+  "description": "Plataforma de administración para plazas comerciales (white-label): estacionamiento QR, locatarios, eventos, nómina, contabilidad y dashboard con IA.",
+  "license": "MIT",
+  "author": "Aloner23",
+  "private": true
+}

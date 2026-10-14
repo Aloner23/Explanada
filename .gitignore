@@ -1,0 +1,46 @@
+# Dependencies & builds
+node_modules
+dist
+dist-ssr
+dist-mock
+dist-electron*/
+*.asar
+*.exe
+*.blockmap
+*.tsbuildinfo
+
+# Logs
+logs
+*.log
+npm-debug.log*
+firebase-debug*.log
+firestore-debug.log
+ui-debug.log
+pglite-debug.log
+
+# Secrets & local config — never commit
+.env
+.env.*
+!.env.example
+functions/.env
+functions/.env.*
+!functions/.env.example
+functions/.secret.local
+*.local
+*.local.json
+*.local.md
+.runtimeconfig.json
+service-account*.json
+*-firebase-adminsdk-*.json
+
+# Firebase local state
+.firebase/
+emulator-data/
+
+# Editors / OS
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.sw?
