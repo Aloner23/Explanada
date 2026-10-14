@@ -1,0 +1,134 @@
+{
+  "name": "Plaza Demo",
+  "shortName": "Plaza Demo",
+  "tagline": "Comercio, eventos y servicios en un solo lugar.",
+  "description": "Plaza Demo es una plaza ficticia que sirve de ejemplo para Explanada: locales comerciales, oficinas, espacios para eventos y estacionamiento con control de caseta.",
+  "logo": "logo.png",
+  "colors": {
+    "primary": "#0d9488",
+    "accent": "#f59e0b",
+    "dark": "#0f172a"
+  },
+  "locale": "es-MX",
+  "currency": "MXN",
+  "timezone": "America/Mexico_City",
+  "contact": {
+    "address": "Av. Ejemplo 100, Col. Centro, 00000 Ciudad Demo",
+    "reference": "A una cuadra del parque central",
+    "hours": "Lun – Vie: 9:00 a 20:00\nSáb – Dom: 10:00 a 18:00",
+    "whatsapp": "5210000000000",
+    "whatsappLabel": "+52 1 000-000-0000",
+    "email": "contacto@plaza-demo.example",
+    "instagram": "@plaza_demo",
+    "facebook": "Plaza Demo",
+    "tiktok": "@plaza_demo",
+    "mapsUrl": "https://maps.google.com/"
+  },
+  "landing": {
+    "heroTitle": "Plaza Demo.",
+    "heroSubtitle": "Tu punto de encuentro.",
+    "heroBadge": "Comercio · Eventos · Servicios",
+    "about": [
+      "Plaza Demo reúne locales comerciales, oficinas y espacios para eventos alrededor de un estacionamiento con control de acceso.",
+      "Este contenido es de ejemplo: cada plaza define el suyo en config/plaza.config.json."
+    ],
+    "yearsLabel": "5+",
+    "yearsText": "Años de operación (dato de ejemplo)"
+  },
+  "tax": {
+    "country": "MX",
+    "vatRate": 0.16,
+    "pricesIncludeTax": true,
+    "taxIdLabel": "RFC",
+    "genericTaxId": "XAXX010101000",
+    "satAccounting": true
+  },
+  "parking": {
+    "hourlyRate": 15,
+    "freeMinutes": 15,
+    "dailyMax": 200,
+    "tenantRateDiscount": 5,
+    "firstHourGraceMinutes": 15,
+    "excessGraceMinutes": 15,
+    "excessFee": 5,
+    "frequentCustomerExtraMinutes": 15,
+    "partnerConvention": {
+      "label": "Convenio comercio aliado",
+      "freeHours": 3
+    },
+    "quickEntryTypes": ["INAPAM", "MAESTRO"]
+  },
+  "calendar": {
+    "holidays": ["01-01", "02-05", "03-21", "05-01", "09-16", "11-20", "12-25"],
+    "includeHolyWeek": true
+  },
+  "spaces": [
+    {
+      "id": "salon-a",
+      "name": "Salón A",
+      "kind": "hall",
+      "capacity": 150,
+      "description": "Salón cerrado para eventos formales, conferencias y celebraciones.",
+      "features": ["Espacio amplio", "Área para banquete", "Sanitarios"],
+      "pricing": { "base": 4500, "blockHours": 8 },
+      "agendaWeight": 0.34
+    },
+    {
+      "id": "terraza",
+      "name": "Terraza",
+      "kind": "outdoor",
+      "capacity": 250,
+      "description": "Espacio al aire libre para bodas, festivales y eventos grandes.",
+      "features": ["Iluminación ambiental", "Cerca del estacionamiento", "Toldo opcional"],
+      "pricing": { "base": 5000, "weekend": 9000, "holiday": 12000 },
+      "agendaWeight": 0.5
+    },
+    {
+      "id": "coworking",
+      "name": "Coworking",
+      "kind": "coworking",
+      "capacity": 40,
+      "description": "Sala de juntas y área de trabajo compartido por día o por evento.",
+      "features": ["Internet de alta velocidad", "Pantalla", "Café"],
+      "pricing": { "base": 2500, "blockHours": 8 },
+      "agendaWeight": 0.25
+    }
+  ],
+  "locales": [
+    { "id": "A-101", "type": "LOCAL", "areaM2": 45 },
+    { "id": "A-102", "type": "LOCAL", "areaM2": 45 },
+    { "id": "A-103", "type": "LOCAL", "areaM2": 45 },
+    { "id": "A-104", "type": "LOCAL", "areaM2": 45 },
+    { "id": "A-105", "type": "LOCAL", "areaM2": 45 },
+    { "id": "B-201", "type": "OFICINA", "areaM2": 30 },
+    { "id": "B-202", "type": "OFICINA", "areaM2": 30 },
+    { "id": "B-203", "type": "OFICINA", "areaM2": 30 },
+    { "id": "D-301", "type": "DEPORTIVO", "areaM2": 440 },
+    { "id": "D-302", "type": "DEPORTIVO", "areaM2": 400 }
+  ],
+  "layout": {
+    "lot": { "width": 120, "depth": 80 },
+    "buildings": [
+      { "id": "edificio-a", "name": "Edificio A · Locales", "kind": "retail", "x": 8, "y": 6, "width": 45, "depth": 12, "height": 4.5, "locales": ["A-101", "A-102", "A-103", "A-104", "A-105"], "description": "Franja de cinco locales comerciales con frente al andador." },
+      { "id": "edificio-b", "name": "Edificio B · Oficinas", "kind": "office", "x": 58, "y": 6, "width": 24, "depth": 12, "height": 9, "locales": ["B-201", "B-202", "B-203"], "description": "Oficinas en segundo nivel sobre áreas de servicio." },
+      { "id": "coworking", "name": "Coworking", "kind": "office", "x": 86, "y": 6, "width": 26, "depth": 12, "height": 6, "space": "coworking", "description": "Sala de juntas y área de trabajo compartido." },
+      { "id": "salon-a", "name": "Salón A", "kind": "events", "x": 8, "y": 22, "width": 22, "depth": 16, "height": 5.5, "space": "salon-a", "description": "Salón cerrado para 150 personas." },
+      { "id": "terraza", "name": "Terraza", "kind": "outdoor", "x": 33, "y": 22, "width": 28, "depth": 16, "height": 0.15, "space": "terraza", "description": "Explanada al aire libre para 250 personas." },
+      { "id": "deportivo", "name": "Área deportiva", "kind": "sports", "x": 64, "y": 22, "width": 48, "depth": 18, "height": 8, "locales": ["D-301", "D-302"], "description": "Nave techada para actividades deportivas." },
+      { "id": "caseta", "name": "Caseta de acceso", "kind": "service", "x": 4, "y": 70, "width": 5, "depth": 4, "height": 3, "description": "Control de entrada y salida del estacionamiento." }
+    ],
+    "parking": [
+      { "x": 14, "y": 46, "width": 96, "depth": 10, "spaces": 32 },
+      { "x": 14, "y": 62, "width": 96, "depth": 10, "spaces": 32 }
+    ],
+    "greens": [
+      { "x": 4, "y": 44, "width": 6, "depth": 22, "trees": 3 },
+      { "x": 112, "y": 44, "width": 5, "depth": 30, "trees": 4 }
+    ]
+  },
+  "pos": {
+    "adapter": "mock",
+    "terminalId": "CAJA-1",
+    "branchId": "1"
+  }
+}
