@@ -1,5 +1,9 @@
 # Explanada
 
+[**Abrir demo**](https://aloner23.github.io/Explanada/) · [Caso de estudio](docs/CASO-DE-ESTUDIO.md) · [Arquitectura](docs/ARQUITECTURA.md) · [Seguridad](docs/SEGURIDAD.md) · [Pruebas](#pruebas-y-verificación)
+
+**Recorrido de 2 minutos:** abre la demo, pulsa **Acceso Interno** e inicia con `dueno` / `demo1234` para explorar el tablero. Después prueba `cajero` para ver el flujo de estacionamiento. Son cuentas de demostración y datos ficticios; el backend de Pages es simulado y el análisis de IA devuelve un ejemplo.
+
 **Plataforma de administración para plazas comerciales.** Estacionamiento con tickets QR y cola offline, locatarios y cobranza, reservas de espacios para eventos, nómina, publicidad, contabilidad con catálogo SAT, un auditor estratégico con IA y un cliente de escritorio para la caseta. Es *white-label*: nombre, logo, colores, espacios, tarifas, locales y maqueta 3D salen de un solo archivo de configuración.
 
 Nació como un sistema a la medida que construí para una plaza comercial real en producción; esta es la versión generalizada.
